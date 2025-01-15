@@ -5,23 +5,29 @@ import org.eis.frontend.repository.EnterpriseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
 
 @Service
 public class EnterpriseService {
+
+
 
     @Autowired
     private EnterpriseRepository enterpriseRepository;
 
     // 1. 根据企业名称进行查询
     public List<Enterprise> searchEnterpriseByName(String name) {
+        enterpriseRepository.flush();
         // 根据企业名称进行模糊查询
         return enterpriseRepository.findByNameContaining(name);
+
     }
 
     // 2. 根据企业简称进行查询
     public List<Enterprise> searchEnterpriseByAbbreviation(String abbreviation) {
         // 根据企业简称进行模糊查询
+        enterpriseRepository.flush();
         return enterpriseRepository.findByAbbreviationContaining(abbreviation);
     }
 

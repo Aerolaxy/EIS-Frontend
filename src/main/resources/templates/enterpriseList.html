@@ -177,24 +177,30 @@
 
     <script>
         // 打开弹出窗口并显示简介内容
-        function openModal(content) {
+        function openModal(element) {
+            // 获取点击的单元格的 data-introduction 和 data-name 内容
+            const content = element.getAttribute('data-introduction') || '简介内容为空';
+            const name = element.getAttribute('data-name') || '企业名称未知';
+
+            // 获取弹窗元素和内容区域
             const modal = document.getElementById("myModal");
             const modalContent = document.getElementById("modalContent");
-            modalContent.textContent = content;
+            const modalHeader = document.getElementById("modalHeader");
+
+            // 动态设置弹窗的标题为企业名称
+            modalHeader.textContent = name;  // 设置为企业名称
+
+            // 在弹窗中显示简介内容
+            modalContent.textContent = content;  // textContent 自动转义 HTML 内容
+
+            // 显示弹窗
             modal.style.display = "block";
         }
 
-        // 关闭弹出窗口
         function closeModal() {
+            // 获取弹窗元素并隐藏
             const modal = document.getElementById("myModal");
             modal.style.display = "none";
-        }
-        window.onload = function () {
-            // 如果有 message 的内容，则弹出提示框
-            const message = "[[${message}]]";
-            if (message) {
-                alert(message);
-            }
         }
     </script>
 </head>
@@ -268,11 +274,13 @@
             <td th:text="${enterprise.status}"></td>
             <td th:text="${enterprise.formerName}"></td>
             <td th:text="${enterprise.communicationAddress}"></td>
-            <td th:text="${enterprise.taxpayerID}"></td>
-            <td th:text="${enterprise.registerationID}"></td>
-            <td th:text="${enterprise.organizationID}"></td>
+            <td th:text="${enterprise.taxPayerId}"></td>
+            <td th:text="${enterprise.registerationId}"></td>
+            <td th:text="${enterprise.organizationId}"></td>
             <td style="cursor: pointer; color: blue; text-decoration: underline;"
-                th:onclick="'openModal(\'简介: \' + ${enterprise.introduction})'">查看简介</td>
+                th:data-name="${enterprise.name}"
+                th:data-introduction="${enterprise.introduction}"
+                onclick="openModal(this)">查看简介</td>
             <td th:text="${enterprise.businessScope}"></td>
             <td th:text="${enterprise.listedOrNot}"></td>
             <td th:text="${enterprise.listingType}"></td>
@@ -289,7 +297,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close" onclick="closeModal()">&times;</span>
-            <h2>企业简介</h2>
+            <h3 id="modalHeader">企业简介</h3>
         </div>
         <div id="modalContent">
             <!-- 简介内容通过JS动态填充 -->

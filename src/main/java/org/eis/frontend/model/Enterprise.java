@@ -1,89 +1,89 @@
 package org.eis.frontend.model;
 
-import ch.qos.logback.classic.pattern.Abbreviator;
 import jakarta.persistence.*;
 
 @Table(name = "enterprise")
 @Entity
 public class Enterprise {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "RegisteredAddress")
+    @Column(name = "registered_address")
     private String registeredAddress;
 
-    @Column(name = "Type")
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "Date")
+    @Column(name = "date")
     private String date;
 
-    @Column(name = "Year")
+    @Column(name = "year")
     private String year;
 
-    @Column(name = "Province")
+    @Column(name = "province")
     private String province;
 
-    @Column(name = "City")
+    @Column(name = "city")
     private String city;
 
-    @Column(name = "District")
+    @Column(name = "district")
     private String district;
 
-    @Column(name = "Industry")
+    @Column(name = "industry")
     private String industry;
 
-    @Column(name = "InsuredDivision")
+    @Column(name = "insured_division")
     private String insuredDivision;
 
-    @Column(name = "RegisteredCaptital")
+    @Column(name = "registered_capital")
     private String registeredCapital;
 
-    @Column(name = "CaptitalDivision")
+    @Column(name = "capital_division")
     private String captitalDivision;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private String status;
 
-    @Column(name = "FormerName")
+    @Column(name = "former_name")
     private String formerName;
 
-    @Column(name = "CommunicationAddress")
+    @Column(name = "communication_address")
     private String communicationAddress;
 
-    @Column(name = "TaxpayerID")
-    private String taxpayerID;
+    @Column(name = "tax_payer_id")
+    private String taxPayerId;
 
-    @Column(name = "RegisterationID")
-    private String registerationID;
+    @Column(name = "registeration_id")
+    private String registerationId;
 
-    @Column(name = "OrganizationID")
-    private String organizationID;
+    @Column(name = "organization_id")
+    private String organizationId;
 
-    @Column(name = "Introduction")
+    @Column(name = "introduction")
     private String introduction;
 
-    @Column(name = "BusinessScope")
+    @Column(name = "business_scope")
     private String businessScope;
 
-    @Column(name = "ListedorNot")
+    @Column(name = "listed_or_not")
     private String listedOrNot;
 
-    @Column(name = "ListingType")
+    @Column(name = "listing_type")
     private String listingType;
 
-    @Column(name = "Abbreviation")
+    @Column(name = "abbreviation")
     private String abbreviation;
 
-    @Column(name = "StockCode")
+    @Column(name = "stock_code")
     private String stockCode;
 
-    @Column(name = "Products")
+    @Column(name = "products")
     private String products;
 
     // 无参构造函数（JPA要求）
@@ -93,8 +93,8 @@ public class Enterprise {
     // 全参构造函数
     public Enterprise(Long id, String name, String registeredAddress, String type, String date, String year, String province,
                       String city, String district, String industry, String insuredDivision, String registeredCapital,
-                      String captitalDivision, String status, String formerName, String communicationAddress, String taxpayerID,
-                      String registerationID, String organizationID, String introduction, String businessScope, String listedOrNot,
+                      String captitalDivision, String status, String formerName, String communicationAddress, String taxPayerId,
+                      String registerationId, String organizationId, String introduction, String businessScope, String listedOrNot,
                       String listingType, String abbreviation, String stockCode, String products) {
         this.id = id;
         this.name = name;
@@ -112,9 +112,9 @@ public class Enterprise {
         this.status = status;
         this.formerName = formerName;
         this.communicationAddress = communicationAddress;
-        this.taxpayerID = taxpayerID;
-        this.registerationID = registerationID;
-        this.organizationID = organizationID;
+        this.taxPayerId = taxPayerId;
+        this.registerationId = registerationId;
+        this.organizationId = organizationId;
         this.introduction = introduction;
         this.businessScope = businessScope;
         this.listedOrNot = listedOrNot;
@@ -254,28 +254,28 @@ public class Enterprise {
         this.communicationAddress = communicationAddress;
     }
 
-    public String getTaxpayerID() {
-        return taxpayerID;
+    public String getTaxPayerId() {
+        return taxPayerId;
     }
 
-    public void setTaxpayerID(String taxpayerID) {
-        this.taxpayerID = taxpayerID;
+    public void setTaxPayerId(String taxpayerID) {
+        this.taxPayerId = taxpayerID;
     }
 
-    public String getRegisterationID() {
-        return registerationID;
+    public String getRegisterationId() {
+        return registerationId;
     }
 
-    public void setRegisterationID(String registerationID) {
-        this.registerationID = registerationID;
+    public void setRegisterationId(String registerationID) {
+        this.registerationId = registerationID;
     }
 
-    public String getOrganizationID() {
-        return organizationID;
+    public String getOrganizationId() {
+        return organizationId;
     }
 
-    public void setOrganizationID(String organizationID) {
-        this.organizationID = organizationID;
+    public void setOrganizationId(String organizationID) {
+        this.organizationId = organizationID;
     }
 
     public String getIntroduction() {
@@ -334,4 +334,6 @@ public class Enterprise {
         this.products = products;
     }
 }
+
+
 
