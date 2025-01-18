@@ -94,10 +94,9 @@ public class EnterpriseController {
 
     // 5. 查询企业信息的问答功能
     @GetMapping("/getEnterpriseInfoAnswer")
-    public String getEnterpriseInfoAnswer(@RequestParam(name = "question", required = false, defaultValue = "") String question, Model model) {
-        // 获取企业信息问答的答案
-        String answer = enterpriseService.getEnterpriseInfoAnswer(question);
-        model.addAttribute("answer", answer);  // 将查询结果传递给视图
-        return "enterpriseAnswer";  // 返回问答结果页面
+    public String getEnterpriseInfoAnswer() {
+        // 只是现实页面，前端 通过 ajax 请求后端接口
+        return "enterpriseChat";  // 返回问答结果页面
     }
+
 }
