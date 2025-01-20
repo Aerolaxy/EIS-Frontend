@@ -1,8 +1,10 @@
-package org.eis.frontend.model;
+package eis.model;
 
 import jakarta.persistence.*;
 
-@Table(name = "enterprise")
+/*企业信息实体类*/
+
+@Table(name = "enterprise") //SQL中以enterprise为表名
 @Entity
 public class Enterprise {
 
@@ -10,6 +12,10 @@ public class Enterprise {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    /*字段映射,可扩展新的字段
+    * 必须符合数据库的下划线命名
+    * 到JAVA的小驼峰命名的对应关系*/
 
     @Column(name = "name")
     private String name;
@@ -86,7 +92,7 @@ public class Enterprise {
     @Column(name = "products")
     private String products;
 
-    // 无参构造函数（JPA要求）
+    // 无参构造函数
     public Enterprise() {
     }
 
@@ -124,7 +130,7 @@ public class Enterprise {
         this.products = products;
     }
 
-    // Getters 和 Setters
+    // Getters 和 Setters,供模板调用
 
     public Long getId() {
         return id;

@@ -258,7 +258,7 @@
             const searchInput = document.getElementById('searchInput');
             const searchType = document.querySelector('input[name="searchType"]:checked').value;
             
-            searchInput.placeholder = searchType === 'name' ? '请输入企业全称' : '请输入企业简称';
+            searchInput.placeholder = searchType == 'name' ? '请输入企业全称' : '请输入企业简称';
         }
 
         // 表单提交处理
@@ -313,11 +313,11 @@
             <button type="submit" class="search-button">查询</button>
             <div class="radio-group">
                 <label>
-                    <input type="radio" name="searchType" value="name" th:checked="${searchType == null || searchType == 'name'}">
+                    <input type="radio" onclick="updatePlaceholder()" name="searchType" value="name" th:checked="${searchType == null || searchType == 'name'}">
                     <span>企业全称</span>
                 </label>
                 <label>
-                    <input type="radio" name="searchType" value="abbreviation" th:checked="${searchType == 'abbreviation'}">
+                    <input type="radio" onclick="updatePlaceholder()" name="searchType" value="abbreviation" th:checked="${searchType == 'abbreviation'}">
                     <span>企业简称</span>
                 </label>
             </div>

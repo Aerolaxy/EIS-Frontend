@@ -1,20 +1,22 @@
-package org.eis.frontend.controller;
+package eis.controller;
 
-import org.eis.frontend.model.Enterprise;
-import org.eis.frontend.service.EnterpriseService;
+import eis.model.Enterprise;
+import eis.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
+/*前端控制层*/
+
 @Controller
-public class EnterpriseController {
+public class FrontendController {
 
     @Autowired
-    private EnterpriseService enterpriseService;
+    private EnterpriseService enterpriseService;    //服务层
 
     // 1. 显示首页
     @GetMapping("/")
@@ -88,24 +90,14 @@ public class EnterpriseController {
         return "enterpriseList";
     }
 
-    // 4. 获取与某企业强关联的企业，基于行业、地区等相同属性
-    @GetMapping("/getRelatedEnterprises")
-    public String getRelatedEnterprises(Model model) {
-        // 获取相关企业
-        List<Enterprise> relatedEnterprises = enterpriseService.getRelatedEnterprises();
-        model.addAttribute("enterprises", relatedEnterprises);  // 将查询结果传递给视图
-        model.addAttribute("message","尚未完成");
-        return "enterpriseRelated";  // 返回查询结果页面
-    }
-
-    // 5. 查询企业信息的问答功能
+    // 4. 查询企业信息的问答功能
     @GetMapping("/getEnterpriseInfoAnswer")
     public String getEnterpriseInfoAnswer() {
         // 只是现实页面，前端 通过 ajax 请求后端接口
         return "enterpriseChat";  // 返回问答结果页面
     }
 
-    // 6. 查看企业详情
+    // 5. 查看企业详情
     @GetMapping("/enterpriseDetail")
     public String getEnterpriseDetail(
             @RequestParam(name = "name", required = false) String name,

@@ -1,7 +1,7 @@
-package org.eis.frontend.service;
+package eis.service;
 
-import org.eis.frontend.model.Enterprise;
-import org.eis.frontend.repository.EnterpriseRepository;
+import eis.model.Enterprise;
+import eis.repository.EnterpriseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,8 @@ import java.nio.charset.StandardCharsets;
 
 import java.util.List;
 
+/*企业信息服务层*/
+
 @Service
 public class EnterpriseService {
 
@@ -25,9 +27,8 @@ public class EnterpriseService {
 
     // 1. 根据企业名称进行查询
     public List<Enterprise> searchEnterpriseByName(String name) {
-        enterpriseRepository.flush();
-        // 根据企业名称进行模糊查询
-        return enterpriseRepository.findByNameContaining(name);
+        enterpriseRepository.flush();//刷新数据源
+        return enterpriseRepository.findByNameContaining(name);// 根据企业名称进行模糊查询
 
     }
 
@@ -38,12 +39,7 @@ public class EnterpriseService {
         return enterpriseRepository.findByAbbreviationContaining(abbreviation);
     }
 
-
-    public List<Enterprise> getRelatedEnterprises() {
-        return null;
-         }
-
-    // 4. 查询企业信息的问答功能（待接入大模型）
+    // 3. 查询企业信息的问答功能
     public String getEnterpriseInfoAnswer(String question) {
         // 请求远程服务 http://101.37.14.142:5000/get_answer?query=
         System.out.println("question: " + question);

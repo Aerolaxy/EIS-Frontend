@@ -1,4 +1,4 @@
-package org.eis.frontend.controller;
+package eis.controller;
 
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.Session;
@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.MediaType;
 import java.util.*;
 
+/*Neo4j数据库的控制层*/
+
 @RestController
-public class Neo4jEnterpriseController {
+public class Neo4jController {
 
     private final Driver driver;
 
-    public Neo4jEnterpriseController(Driver driver) {
+    public Neo4jController(Driver driver) {
         this.driver = driver;
     }
 

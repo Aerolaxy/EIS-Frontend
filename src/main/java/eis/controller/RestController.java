@@ -1,18 +1,13 @@
-package org.eis.frontend.controller;
+package eis.controller;
 
-import org.eis.frontend.model.Enterprise;
-import org.eis.frontend.service.EnterpriseService;
+import eis.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
-@RestController
-public class RestEnterpriseController {
+@org.springframework.web.bind.annotation.RestController
+public class RestController {
 
     @Autowired
     private EnterpriseService enterpriseService;

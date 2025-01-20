@@ -1,4 +1,4 @@
-package org.eis.frontend.config;
+package eis.config;
 
 import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.Driver;

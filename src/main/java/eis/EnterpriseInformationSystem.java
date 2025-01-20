@@ -1,14 +1,16 @@
-package org.eis.frontend;
+package eis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/*应用启动类*/
+
 @SpringBootApplication
 public class
-FrontEndApplication {
+EnterpriseInformationSystem {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FrontEndApplication.class, args);
+		SpringApplication.run(EnterpriseInformationSystem.class, args);
 	}
 
 }
